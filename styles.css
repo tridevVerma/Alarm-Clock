@@ -1,3 +1,11 @@
+/* FONT-FAMILIES */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "clock-font";
+  src: url("./fonts/digital-7.ttf");
+}
+
 /* GENERAL STYLING */
 
 :root {
@@ -141,6 +149,7 @@ main {
   letter-spacing: 1.5rem;
   font-style: italic;
   font-size: 8rem;
+  font-family: "clock-font";
 }
 
 .current-datetime .date h1 {
@@ -149,6 +158,7 @@ main {
   letter-spacing: 0.5rem;
   font-style: italic;
   font-size: 4rem;
+  font-family: "clock-font";
 }
 
 .set-alarm {
