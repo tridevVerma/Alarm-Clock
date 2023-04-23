@@ -8,16 +8,31 @@
 }
 
 /* GENERAL STYLING */
-
 :root {
-  --white: #dedede;
-  --nav-bg: #0d1b2a;
-  --main-bg: #1b263b;
-  --grey: #adadad;
+  --sub-text: #adadad;
   --hover: #4cc9f0;
+  --hover-dark: #2aa8d0;
   --danger: #ea3546;
   --glow-heavy: #0ff;
   --glow-light: #4dd;
+  --white: #fff;
+  --black: #000;
+  --grey-1: #dedede;
+  --grey-2: #ced4da;
+}
+
+html[data-theme="light"] {
+  --text: #242424;
+  --nav-bg: #f8f9fa;
+  --main-bg: #e9ecef;
+  --extreme: #000;
+}
+
+html[data-theme="dark"] {
+  --text: #dedede;
+  --nav-bg: #0d1b2a;
+  --main-bg: #1b263b;
+  --extreme: #fff;
 }
 
 * {
@@ -37,7 +52,7 @@ a {
 }
 
 i {
-  color: var(--white);
+  color: var(--text);
   font-size: 30px;
 }
 
@@ -55,7 +70,7 @@ i + span,
 
 nav {
   background-color: var(--nav-bg);
-  color: var(--white);
+  color: var(--text);
   padding: 0.5rem;
   position: sticky;
   top: 0%;
@@ -70,7 +85,7 @@ nav ul {
 }
 
 ul li a {
-  color: var(--white);
+  color: var(--text);
 }
 
 ul li a:hover,
@@ -102,7 +117,7 @@ ul li a:hover i {
 
 .form-check-input {
   font-size: 1.6rem;
-  border: 2px solid var(--white) !important;
+  border: 2px solid var(--text) !important;
   background: url("./images/sun.png") !important;
   background-position: left center !important;
   background-size: 24px !important;
@@ -110,7 +125,7 @@ ul li a:hover i {
 }
 
 .form-check-input:checked {
-  border: 2px solid var(--white) !important;
+  border: 2px solid var(--text) !important;
   background: url("./images/crescent-moon.png") !important;
   background-position: right center !important;
   background-size: 18px !important;
@@ -122,11 +137,15 @@ ul li a:hover i {
   border-color: var(--hover) !important;
 }
 
+.form-check-label {
+  text-transform: capitalize;
+}
+
 /* MAIN STYLING */
 
 main {
   background-color: var(--main-bg);
-  color: var(--white);
+  color: var(--text);
   width: 100%;
   min-height: 100vh;
   padding: 2rem;
@@ -139,7 +158,8 @@ main {
   justify-content: space-between;
 }
 
-.current-datetime .time h1 {
+.current-datetime .time h1,
+.current-datetime .date h1 {
   text-align: center;
   width: 100%;
   letter-spacing: 1.5rem;
@@ -149,17 +169,15 @@ main {
 }
 
 .current-datetime .date h1 {
-  text-align: center;
-  color: var(--grey);
+  color: var(--sub-text);
   letter-spacing: 0.5rem;
-  font-style: italic;
   font-size: 4rem;
-  font-family: "clock-font";
 }
 
 /* If in fullscreen mode apply these styles */
 
 .current-datetime:fullscreen {
+  background-color: var(--main-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,13 +189,14 @@ main {
 }
 
 .current-datetime:fullscreen .date h1 {
-  color: var(--white);
+  color: var(--sub-text);
 }
 
 .set-alarm {
   margin: 2rem auto;
   padding: 15px 45px;
-  box-shadow: var(--grey) 0px 3px 8px;
+  box-shadow: var(--sub-text) 0px 3px 8px;
+  background-color: var(--text);
   border: none;
   display: flex;
   align-items: center;
@@ -185,10 +204,9 @@ main {
 }
 
 .set-alarm:hover {
-  background-color: #4cc9f0;
+  background-color: var(--hover);
   box-shadow: 0px 15px 20px rgba(46, 180, 250, 0.6);
-  color: white;
-  /* transform: translate(-7px, -10px); */
+  color: var(--extreme);
 }
 
 .set-alarm > img {
@@ -207,13 +225,8 @@ main {
   width: 100%;
 }
 
-.active-alarms ul {
-  /* background-color: lightsalmon; */
-}
-
 .active-alarms ul li {
   width: 100%;
-  /* background-color: lightseagreen; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -240,7 +253,7 @@ main {
 }
 
 .modal-header {
-  color: var(--white);
+  color: var(--text);
   background-color: var(--nav-bg);
 }
 
@@ -255,25 +268,26 @@ main {
 }
 
 .btn-close {
-  background-color: #fff;
+  background-color: var(--extreme);
 }
 
 .btn {
   border-radius: 2px;
+  border: none;
 }
 
 .btn-primary {
-  background-color: #4895ef;
+  background-color: var(--hover);
   color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-dark);
 }
 
 .modal-body form div label {
-  color: var(--white);
+  color: var(--text);
   font-size: 1.4rem;
-}
-
-.modal-body form div {
-  /* background-color: lightseagreen; */
 }
 
 .modal-body form div input {
@@ -282,7 +296,7 @@ main {
   border: none;
   outline: none;
   font-size: 1.2rem;
-  background-color: var(--white);
+  background-color: var(--text);
 }
 
 /* STOP-WATCH */
@@ -324,7 +338,6 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  color: var(--white);
   font-size: 4rem;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 6px;
@@ -339,7 +352,7 @@ main {
 
 .stop-watch-controls {
   position: absolute;
-  top: 70%;
+  top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
@@ -365,4 +378,38 @@ main {
 
 .stop-watch-controls button i {
   color: var(--glow-light);
+}
+
+/* LIGHT MODE STYLES */
+
+html[data-theme="light"] .set-alarm {
+  background-color: var(--grey-1);
+}
+
+html[data-theme="light"] .set-alarm:hover {
+  background-color: var(--hover);
+}
+
+html[data-theme="light"] .btn-close {
+  background-color: var(--grey-2);
+}
+
+html[data-theme="light"] .modal-body form div input {
+  background-color: var(--nav-bg);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+html[data-theme="light"] .outer-circle::before {
+  -webkit-box-shadow: 0 0 17px 3px var(--glow-light),
+    0 0 4px 2px var(--glow-light);
+  box-shadow: 0 0 17px 3px var(--glow-light), 0 0 4px 2px var(--glow-light);
+}
+
+html[data-theme="light"] .stop-watch-controls button {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+html[data-theme="light"] .stop-watch-controls button:active {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

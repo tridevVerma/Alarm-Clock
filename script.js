@@ -81,13 +81,20 @@
     };
   }
 
-  // UPDATE DATE AND TIME
+  // IIFE
   (function () {
-    const time = document.querySelector(".time > h1");
-    const date = document.querySelector(".date > h1");
+    // LISTENER FOR FULL-SCREEN
     const fullScreenBtn = document.querySelector(".full-screen > a");
-    const fullScreenElem = document.querySelector(".current-datetime ");
+    fullScreenBtn.addEventListener("click", (e) => openFullscreen(e));
 
+    // SET THEME OF PROJECT -- [DARK, LIGHT]
+    const themeBtn = document.querySelector(".form-check-input");
+    themeBtn.addEventListener("change", (e) => setTheme(e));
+
+    // SET AND DISPLAY CURRENT DATE-TIME
+    setInterval(setCurrentDateTime, 1000);
+
+    // SET AND DISPLAY STOP-WATCH TIME
     const startBtn = document.querySelector(".stop-watch-controls > .start");
     const pauseBtn = document.querySelector(".stop-watch-controls > .pause");
     const stopBtn = document.querySelector(".stop-watch-controls > .stop");
@@ -108,16 +115,6 @@
         newStopWatch.stop();
       });
     });
-
-    fullScreenBtn.addEventListener("click", function (e) {
-      e.preventDefault();
-      openFullscreen(fullScreenElem);
-    });
-    const id = setInterval(function () {
-      let datetime = new Date();
-      time.innerHTML = getCurrentTime(datetime);
-      date.innerHTML = getCurrentDate(datetime);
-    }, 1000);
   })();
 
   // GET CURRENT TIME AND FORMAT IT
@@ -145,7 +142,9 @@
   }
 
   // ENTER/EXIT FULL SCREEN
-  function openFullscreen(elem) {
+  function openFullscreen(e) {
+    e.preventDefault();
+    const elem = document.querySelector(".current-datetime ");
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     } else if (elem.webkitRequestFullscreen) {
@@ -155,5 +154,23 @@
       /* IE11 */
       elem.msRequestFullscreen();
     }
+  }
+
+  // SET PROJECT THEME
+  function setTheme(e) {
+    const html = document.querySelector("html");
+    const themeText = document.querySelector(".form-check-label");
+    const themeValue = e.target.checked ? "dark" : "light";
+    html.setAttribute("data-theme", themeValue);
+    themeText.innerText = themeValue;
+  }
+
+  // SET CURRENT DATE-TIME
+  function setCurrentDateTime() {
+    const time = document.querySelector(".time > h1");
+    const date = document.querySelector(".date > h1");
+    let datetime = new Date();
+    time.innerHTML = getCurrentTime(datetime);
+    date.innerHTML = getCurrentDate(datetime);
   }
 }
