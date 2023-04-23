@@ -136,13 +136,6 @@ main {
   justify-content: space-between;
 }
 
-.current-datetime:fullscreen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .current-datetime .time h1 {
   text-align: center;
   width: 100%;
@@ -159,6 +152,23 @@ main {
   font-style: italic;
   font-size: 4rem;
   font-family: "clock-font";
+}
+
+/* If in fullscreen mode apply these styles */
+
+.current-datetime:fullscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-datetime:fullscreen .time h1 {
+  color: var(--hover);
+}
+
+.current-datetime:fullscreen .date h1 {
+  color: var(--white);
 }
 
 .set-alarm {
@@ -209,4 +219,65 @@ main {
 
 .active-alarms ul li span i {
   color: var(--danger);
+}
+
+/* MODAL STYLING */
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-dialog {
+  max-width: none;
+  width: 40%;
+}
+
+.modal-content {
+  background-color: var(--main-bg);
+}
+
+.modal-header {
+  color: var(--white);
+  background-color: var(--nav-bg);
+}
+
+.modal-header > h1 {
+  font-size: 2rem;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  border: none;
+}
+
+.btn-close {
+  background-color: #fff;
+}
+
+.btn {
+  border-radius: 2px;
+}
+
+.btn-primary {
+  background-color: #4895ef;
+  color: var(--white);
+}
+
+.modal-body form div label {
+  color: var(--white);
+  font-size: 1.4rem;
+}
+
+.modal-body form div {
+  /* background-color: lightseagreen; */
+}
+
+.modal-body form div input {
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  background-color: var(--white);
 }
