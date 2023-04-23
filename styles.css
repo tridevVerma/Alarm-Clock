@@ -1,0 +1,112 @@
+/* GENERAL STYLING */
+
+:root {
+  --white: #dedede;
+  --nav-bg: #0d1b2a;
+  --main-bg: #1b263b;
+  --grey: #adadad;
+  --hover: #4cc9f0;
+  --danger: #ea3546;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+i {
+  color: var(--white);
+  font-size: 30px;
+}
+
+span,
+.form-check-label {
+  font-size: 1.5rem;
+}
+
+i + span,
+.form-check-label {
+  margin-left: 1rem;
+}
+
+/* NAVBAR STYLING */
+
+nav {
+  background-color: var(--nav-bg);
+  color: var(--white);
+  padding: 0.5rem;
+  position: sticky;
+  top: 0%;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+ul li a {
+  color: var(--white);
+}
+
+ul li a:hover,
+ul li a:hover i {
+  color: var(--hover);
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+.logo a img {
+  width: 90px;
+}
+
+.logo a span {
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.form-check-input {
+  font-size: 1.6rem;
+  border: 2px solid var(--white) !important;
+  background: url("./images/sun.png") !important;
+  background-position: left center !important;
+  background-size: 24px !important;
+  background-repeat: no-repeat !important;
+}
+
+.form-check-input:checked {
+  border: 2px solid var(--white) !important;
+  background: url("./images/crescent-moon.png") !important;
+  background-position: right center !important;
+  background-size: 18px !important;
+  background-repeat: no-repeat !important;
+}
+
+.form-check-input:hover {
+  cursor: pointer;
+  border-color: var(--hover) !important;
+}
