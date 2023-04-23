@@ -15,12 +15,99 @@
     "dec",
   ];
 
+  // STOP-WATCH FUNCTIONALITY
+  class stopWatch {
+    constructor(hourMinSec, miliSec) {
+      this.hours = 0;
+      this.minutes = 0;
+      this.seconds = 0;
+      this.miliseconds = 0;
+      this.intervalId = null;
+      this.hourMinSecDisplay = hourMinSec;
+      this.miliSecDisplay = miliSec;
+    }
+
+    start() {
+      if (this.intervalId !== null) {
+        clearInterval(this.intervalId);
+      }
+      this.intervalId = setInterval(this.displayTime, 17);
+    }
+
+    pause() {
+      clearInterval(this.intervalId);
+    }
+
+    stop() {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+
+      this.hours = 0;
+      this.minutes = 0;
+      this.seconds = 0;
+      this.miliseconds = 0;
+      this.hourMinSecDisplay.innerText = `${convertToTwoDigits(
+        this.hours
+      )}:${convertToTwoDigits(this.minutes)}:${convertToTwoDigits(
+        this.seconds
+      )}`;
+      this.miliSecDisplay.innerText = `${convertToTwoDigits(this.miliseconds)}`;
+    }
+
+    displayTime = () => {
+      this.miliseconds = this.miliseconds + 1;
+
+      if (this.miliseconds >= 60) {
+        this.miliseconds = 0;
+        this.seconds = this.seconds + 1;
+
+        if (this.seconds >= 60) {
+          this.seconds = 0;
+          this.minutes = this.minutes + 1;
+
+          if (this.minutes >= 60) {
+            this.minutes = 0;
+            this.hours = this.hours + 1;
+          }
+        }
+      }
+
+      this.hourMinSecDisplay.innerText = `${convertToTwoDigits(
+        this.hours
+      )}:${convertToTwoDigits(this.minutes)}:${convertToTwoDigits(
+        this.seconds
+      )}`;
+      this.miliSecDisplay.innerText = `${convertToTwoDigits(this.miliseconds)}`;
+    };
+  }
+
   // UPDATE DATE AND TIME
   (function () {
     const time = document.querySelector(".time > h1");
     const date = document.querySelector(".date > h1");
     const fullScreenBtn = document.querySelector(".full-screen > a");
     const fullScreenElem = document.querySelector(".current-datetime ");
+
+    const startBtn = document.querySelector(".stop-watch-controls > .start");
+    const pauseBtn = document.querySelector(".stop-watch-controls > .pause");
+    const stopBtn = document.querySelector(".stop-watch-controls > .stop");
+
+    const hourMinSec = document.querySelector(
+      "#stop-watch-timer > #hour-min-sec"
+    );
+    const miliSec = document.querySelector("#stop-watch-timer > #milisec");
+
+    const newStopWatch = new stopWatch(hourMinSec, miliSec);
+
+    startBtn.addEventListener("click", function () {
+      newStopWatch.start();
+      pauseBtn.addEventListener("click", function () {
+        newStopWatch.pause();
+      });
+      stopBtn.addEventListener("click", function () {
+        newStopWatch.stop();
+      });
+    });
 
     fullScreenBtn.addEventListener("click", function (e) {
       e.preventDefault();

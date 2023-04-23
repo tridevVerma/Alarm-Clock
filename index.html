@@ -66,7 +66,12 @@
         </li>
 
         <li class="stop-watch">
-          <a href="#" class="features">
+          <a
+            href="#"
+            class="features"
+            data-bs-toggle="modal"
+            data-bs-target="#set-stop-watch-modal"
+          >
             <i class="fa-solid fa-stopwatch"></i>
             <span>Stop-Watch</span>
           </a>
@@ -195,6 +200,47 @@
     </div>
 
     <!-- MODAL FOR SETTING UP STOP-WATCH -->
+
+    <div
+      class="modal fade"
+      id="set-stop-watch-modal"
+      tabindex="-1"
+      aria-labelledby="setModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title" id="exampleModalLabel">Stop-Watch</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body stop-watch-modal-body">
+            <div class="outer-circle">
+              <div id="stop-watch-timer">
+                <h1 id="hour-min-sec">00:00:00</h1>
+                <h2 id="milisec">00</h2>
+              </div>
+              <div class="stop-watch-controls">
+                <button class="pause">
+                  <i class="fa-solid fa-pause"></i>
+                </button>
+                <button class="start">
+                  <i class="fa-solid fa-play"></i>
+                </button>
+                <button class="stop">
+                  <i class="fa-solid fa-stop"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- BOOTSTRAP JS BUNDLE -->
     <script
