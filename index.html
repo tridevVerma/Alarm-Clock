@@ -94,7 +94,47 @@
         </li>
       </ul>
     </nav>
+
     <!-- MAIN -->
+
+    <main>
+      <div class="container">
+        <section class="current-datetime">
+          <div class="time">
+            <h1>07:33:45AM</h1>
+          </div>
+          <div class="date">
+            <h1>SAT APR 22 2023</h1>
+          </div>
+        </section>
+
+        <button
+          class="set-alarm"
+          data-bs-toggle="modal"
+          data-bs-target="#set-alarm-modal"
+        >
+          <img src="./images/alarm.png" alt="set alarm" />
+          <span>Set Alarm</span>
+        </button>
+
+        <section class="active-alarms">
+          <ul>
+            <li>
+              <span>Alarm - 22 apr 2023 (02:30:00)</span>
+              <a href="#">
+                <span><i class="fa-solid fa-trash"></i></span>
+              </a>
+            </li>
+            <li>
+              <span>Alarm - 25 apr 2023 (05:30:00)</span>
+              <a href="#">
+                <span><i class="fa-solid fa-trash"></i></span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
 
     <!-- MODAL FOR SETTING UP ALARM -->
 

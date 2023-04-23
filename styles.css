@@ -110,3 +110,93 @@ ul li a:hover i {
   cursor: pointer;
   border-color: var(--hover) !important;
 }
+
+/* MAIN STYLING */
+
+main {
+  background-color: var(--main-bg);
+  color: var(--white);
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.current-datetime:fullscreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-datetime .time h1 {
+  text-align: center;
+  width: 100%;
+  letter-spacing: 1.5rem;
+  font-style: italic;
+  font-size: 8rem;
+}
+
+.current-datetime .date h1 {
+  text-align: center;
+  color: var(--grey);
+  letter-spacing: 0.5rem;
+  font-style: italic;
+  font-size: 4rem;
+}
+
+.set-alarm {
+  margin: 2rem auto;
+  padding: 15px 45px;
+  box-shadow: var(--grey) 0px 3px 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: 0.2s transform ease-in-out;
+}
+
+.set-alarm:hover {
+  background-color: #4cc9f0;
+  box-shadow: 0px 15px 20px rgba(46, 180, 250, 0.6);
+  color: white;
+  /* transform: translate(-7px, -10px); */
+}
+
+.set-alarm > img {
+  width: 50px;
+  margin-right: 1rem;
+}
+
+.set-alarm > span {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.active-alarms {
+  margin: 2rem auto;
+  width: 100%;
+}
+
+.active-alarms ul {
+  /* background-color: lightsalmon; */
+}
+
+.active-alarms ul li {
+  width: 100%;
+  /* background-color: lightseagreen; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+.active-alarms ul li span i {
+  color: var(--danger);
+}
