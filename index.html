@@ -107,10 +107,10 @@
       <div class="container">
         <section class="current-datetime">
           <div class="time">
-            <h1>07:33:45AM</h1>
+            <h1>--:--:-- --</h1>
           </div>
           <div class="date">
-            <h1>SAT APR 22 2023</h1>
+            <h1>--- -- -- ----</h1>
           </div>
         </section>
 
@@ -122,22 +122,10 @@
           <img src="./images/alarm.png" alt="set alarm" />
           <span>Set Alarm</span>
         </button>
-
+        <hr />
         <section class="active-alarms">
-          <ul>
-            <li>
-              <span>Alarm - 22 apr 2023 (02:30:00)</span>
-              <a href="#">
-                <span><i class="fa-solid fa-trash"></i></span>
-              </a>
-            </li>
-            <li>
-              <span>Alarm - 25 apr 2023 (05:30:00)</span>
-              <a href="#">
-                <span><i class="fa-solid fa-trash"></i></span>
-              </a>
-            </li>
-          </ul>
+          <h1>Active Alarms</h1>
+          <ul></ul>
         </section>
       </div>
     </main>
@@ -163,38 +151,78 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form action="#" method="post" class="row g-4">
-              <div class="set-title col-md-6 col-sm-12">
+            <form action="#" method="post" class="row g-4" id="alarm-form">
+              <div class="set-title col-lg-12">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" />
+                <input type="text" id="title" name="title" value="Alarm" />
               </div>
               <div class="set-hour col-md-6 col-sm-12">
                 <label for="hour">Hour</label>
-                <input type="number" id="hour" name="hour" />
+                <input
+                  type="number"
+                  id="hour"
+                  name="hour"
+                  min="1"
+                  max="12"
+                  required
+                />
               </div>
               <div class="set-minute col-md-6 col-sm-12">
                 <label for="minute">Minute</label>
-                <input type="number" id="minute" name="minute" />
+                <input
+                  type="number"
+                  id="minute"
+                  name="minute"
+                  min="0"
+                  max="59"
+                  required
+                />
               </div>
               <div class="set-second col-md-6 col-sm-12">
                 <label for="second">Second</label>
-                <input type="number" id="second" name="second" />
+                <input
+                  type="number"
+                  id="second"
+                  name="second"
+                  min="0"
+                  max="59"
+                  required
+                />
+              </div>
+
+              <div class="set-meridiem col-md-6 col-sm-12">
+                <label for="meridiem">Meridiem</label>
+                <select id="meridiem" name="meridiem">
+                  <option value="AM">AM</option>
+                  <option value="PM">PM</option>
+                </select>
               </div>
               <div class="col-lg-12">
                 <label for="select-date">Select Date</label>
-                <input type="date" name="select-date" id="select-date" />
+                <input
+                  type="date"
+                  name="select-date"
+                  id="select-date"
+                  required
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                >
+                  Save Alarm
+                </button>
               </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save Alarm</button>
           </div>
         </div>
       </div>
