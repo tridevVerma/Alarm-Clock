@@ -1,4 +1,4 @@
-# Alarm-clock
+# Alarm-clock [Live Link](https://tridevverma.github.io/Alarm-clock/)
 This is a web app for both mobile and desktop devices which has basic clock functionalities. It has clean and attractive UI combined with powerfull features. 
 Whole website is extreamy simple, intuitive and easy to use.
 
