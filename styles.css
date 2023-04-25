@@ -481,10 +481,6 @@ html[data-theme="light"] .stop-watch-controls button:active {
     display: none;
   }
 
-  .set-alarm {
-    /* width: 250px; */
-  }
-
   .set-alarm > img {
     width: 35px;
   }
@@ -555,5 +551,45 @@ html[data-theme="light"] .stop-watch-controls button:active {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    font-size: 5px;
+  }
+
+  i {
+    font-size: 20px;
+  }
+
+  .logo a img {
+    width: 50px;
+  }
+
+  .current-datetime .time h1 {
+    letter-spacing: 0.5rem;
+  }
+
+  .set-alarm {
+    padding: 10px 30px;
+  }
+
+  .set-alarm > img {
+    width: 24px;
+  }
+
+  .outer-circle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .stop-watch-controls button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .stop-watch-controls button i {
+    font-size: 20px;
   }
 }
