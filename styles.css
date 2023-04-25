@@ -19,6 +19,20 @@
   --black: #000;
   --grey-1: #dedede;
   --grey-2: #ced4da;
+  font-size: 16px;
+}
+
+body {
+  --font-xxl-main: 8em;
+  --font-xxl-sub: 6em;
+  --font-xl-main: 4em;
+  --font-xl-sub: 3.5em;
+  --font-lg-main: 3em;
+  --font-lg-sub: 2.5em;
+  --font-md-main: 2em;
+  --font-md-sub: 1.5em;
+  --font-sm-main: 1em;
+  --font-sm-sub: 0.5em;
 }
 
 html[data-theme="light"] {
@@ -58,12 +72,12 @@ i {
 
 span,
 .form-check-label {
-  font-size: 1.5rem;
+  font-size: var(--font-md-sub);
 }
 
 i + span,
 .form-check-label {
-  margin-left: 1rem;
+  margin-left: var(--font-sm-main);
 }
 
 /* NAVBAR STYLING */
@@ -80,8 +94,8 @@ nav ul {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  margin-left: var(--font-md-main);
+  margin-right: var(--font-md-main);
 }
 
 ul li a {
@@ -111,12 +125,13 @@ ul li a:hover i {
 .logo a span {
   margin-left: 0.5rem;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: var(--font-lg-main);
   font-weight: 500;
 }
 
 .form-check-input {
-  font-size: 1.6rem;
+  width: 55px !important;
+  font-size: var(--font-md-sub);
   border: 2px solid var(--text) !important;
   background: url("./images/sun.png") !important;
   background-position: left center !important;
@@ -164,14 +179,14 @@ main {
   width: 100%;
   letter-spacing: 1.5rem;
   font-style: italic;
-  font-size: 8rem;
+  font-size: var(--font-xxl-main);
   font-family: "clock-font";
 }
 
 .current-datetime .date h1 {
   color: var(--sub-text);
   letter-spacing: 0.5rem;
-  font-size: 4rem;
+  font-size: var(--font-xl-main);
 }
 
 /* If in fullscreen mode apply these styles */
@@ -215,25 +230,28 @@ main {
 }
 
 .set-alarm > span {
-  font-size: 2rem;
+  font-size: var(--font-md-main);
   font-weight: 500;
   letter-spacing: 1px;
 }
 
 .active-alarms {
-  margin: 2rem auto;
+  margin: var(--font-md-main) auto;
   width: 100%;
 }
 
 .active-alarms ul li {
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 1fr;
+  place-items: center;
   margin: 2rem auto;
-  margin-left: -2rem;
+  /* margin-left: -2rem; */
 }
 
 .active-alarms ul li span {
+  color: var(--sub-text);
+  font-size: var(--font-md-main);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -263,7 +281,7 @@ main {
 }
 
 .modal-header > h1 {
-  font-size: 2rem;
+  font-size: var(--font-md-main);
 }
 
 .modal-header,
@@ -292,7 +310,7 @@ main {
 
 .modal-body form div label {
   color: var(--text);
-  font-size: 1.4rem;
+  font-size: var(--font-md-sub);
 }
 
 .modal-body form div input,
@@ -345,7 +363,7 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  font-size: 4rem;
+  font-size: var(--font-xl-main);
   font-family: "Montserrat", sans-serif;
   letter-spacing: 6px;
   color: var(--glow-light);
@@ -353,7 +371,7 @@ main {
 
 #stop-watch-timer > #milisec {
   top: 45%;
-  font-size: 2.5rem;
+  font-size: var(--font-lg-sub);
   margin: 2rem auto;
 }
 
@@ -420,4 +438,122 @@ html[data-theme="light"] .stop-watch-controls button {
 
 html[data-theme="light"] .stop-watch-controls button:active {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1072px) {
+  body {
+    font-size: 12px;
+  }
+  .form-check-input {
+    width: 45px !important;
+    height: 22px;
+    background-size: 18px !important;
+  }
+  .form-check-input:checked {
+    background-size: 15px !important;
+  }
+
+  .active-alarms ul li span {
+    font-size: 1.5rem;
+  }
+
+  .active-alarms ul li {
+    margin-left: auto;
+  }
+  .modal-dialog {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 865px) {
+  body {
+    font-size: 10px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .features span,
+  .features label {
+    display: none;
+  }
+
+  .set-alarm {
+    /* width: 250px; */
+  }
+
+  .set-alarm > img {
+    width: 35px;
+  }
+
+  .delete-alarm span i {
+    font-size: 24px;
+  }
+
+  .outer-circle {
+    width: 300px;
+    height: 300px;
+  }
+
+  .stop-watch-controls button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stop-watch-controls button i {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    font-size: 6px;
+  }
+
+  .active-alarms ul li span {
+    font-size: 1rem;
+  }
+
+  #stop-watch-timer #hour-min-sec {
+    font-size: 2rem;
+  }
+
+  #stop-watch-timer #milisec {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 0px;
+  }
+
+  .logo a img {
+    width: 65px;
+  }
+
+  .current-datetime {
+    width: 100%;
+  }
+
+  .current-datetime .time h1 {
+    letter-spacing: 1rem;
+  }
+
+  .set-alarm > img {
+    width: 28px;
+  }
+
+  .modal-dialog {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
